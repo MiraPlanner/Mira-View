@@ -1,0 +1,35 @@
+.ButtonContainer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  outline: none;
+}
+
+
+.ButtonBox {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 32px;
+  left: -2px;
+  background-color: white;
+  border: 0;
+  border-radius: 50%;
+  box-shadow: rgb(9 30 66 / 8%) 0 0 0 1px, rgb(9 30 66 / 8%) 0 2px 4px 1px;
+  color: #6B778C;
+  cursor: pointer !important;
+  transform: rotate(180deg);
+  transform-origin: 7px center;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Button {
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: 1;
+  z-index: 20;
+}
