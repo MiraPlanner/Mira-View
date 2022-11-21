@@ -62,7 +62,7 @@
   align-items: center;
   margin: 0px 4px;
   flex-shrink: 0;
-  padding: 0;
+  padding-right: 1rem;
 }
 
 .CreateIssueButton {
@@ -115,4 +115,8 @@
   cursor: pointer;
   height: 2.28571em;
   line-height: 2.28571em;
+}
+
+.CreateIssueButton:hover {
+  background-color: #1963d1;
 }
