@@ -1,10 +1,7 @@
 import React from 'react'
-import { useProSidebar } from 'react-pro-sidebar'
 import styles from './SidenavHeader.module.scss'
 
 const SidenavHeader = () => {
-  const { collapseSidebar } = useProSidebar()
-
   return (
     <div className={styles.Container}>
       <div className={styles.Content}>

@@ -1,6 +1,7 @@
 import React from 'react'
 import Sidenav from '../../components/Sidenav'
 import styles from './Layout.module.scss'
+import Header from '../../components/Header'
 
 type Props = {
   children: React.ReactNode
@@ -9,8 +10,11 @@ type Props = {
 const Layout = ({ children }: Props) => {
   return (
     <div className={styles.Container}>
-      <Sidenav />
-      {children}
+      <Header />
+      <div className={styles.Wrapper}>
+        <Sidenav />
+        {children}
+      </div>
     </div>
   )
 }

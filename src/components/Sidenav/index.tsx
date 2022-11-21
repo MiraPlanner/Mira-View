@@ -1,20 +1,19 @@
 import React, { Fragment } from 'react'
-import { Menu, MenuItem, Sidebar, useProSidebar } from 'react-pro-sidebar'
+import { Menu, MenuItem, Sidebar } from 'react-pro-sidebar'
 import styles from './Sidenav.module.scss'
 import SidenavHeader from './SidenavHeader'
 import SidenavButton from './SidenavButton'
+import { Link } from 'react-router-dom'
 
 const Sidenav = () => {
-  const { collapseSidebar } = useProSidebar()
-
   return (
     <Fragment>
       <div className={styles.Container}>
         <Sidebar className={styles.Sidenav} backgroundColor='' collapsedWidth='1.4rem'>
           <Menu>
             <SidenavHeader />
-            <MenuItem> Documentation </MenuItem>
-            <MenuItem> Calendar </MenuItem>
+            <MenuItem routerLink={<Link to='/backlog' />}> Backlog</MenuItem>
+            <MenuItem routerLink={<Link to='/boards' />}> Board</MenuItem>
           </Menu>
         </Sidebar>
         <SidenavButton />

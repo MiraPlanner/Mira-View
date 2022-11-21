@@ -4,7 +4,7 @@ import Layout from '../../layouts/Layout'
 const Backlog = () => {
   return (
     <Layout>
-      <div>Hello World</div>
+      <div>Backlog Content Goes Here</div>
     </Layout>
   )
 }

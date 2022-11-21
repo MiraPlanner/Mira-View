@@ -8,23 +8,22 @@
 
 
 .ButtonBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
   width: 24px;
   height: 24px;
-  position: absolute;
   top: 32px;
-  left: -2px;
-  background-color: white;
+  left: -12.5px;
   border: 0;
   border-radius: 50%;
   box-shadow: rgb(9 30 66 / 8%) 0 0 0 1px, rgb(9 30 66 / 8%) 0 2px 4px 1px;
   color: #6B778C;
-  cursor: pointer !important;
-  transform: rotate(180deg);
+  background-color: white;
+  cursor: pointer;
   transform-origin: 7px center;
   z-index: 10;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .Button {
@@ -32,4 +31,23 @@
   vertical-align: bottom;
   line-height: 1;
   z-index: 20;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: #6b778c;
+}
+
+
+.ButtonBox:hover {
+  background-color: #4c9aff;
+}
+
+.Button:hover {
+  color: white;
+}
+
+.rotate {
+  transform:scaleX(-1);
 }

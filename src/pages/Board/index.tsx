@@ -1,8 +1,12 @@
 import React from 'react'
-import styles from './Board.module.scss'
+import Layout from '../../layouts/Layout'
 
 const Board = () => {
-  return <div className={styles.container}>Hello World</div>
+  return (
+    <Layout>
+      <div>Board Content Goes Here</div>
+    </Layout>
+  )
 }
 
 export default Board
