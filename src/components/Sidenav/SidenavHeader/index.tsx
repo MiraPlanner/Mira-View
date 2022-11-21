@@ -14,7 +14,7 @@ const SidenavHeader = () => {
         </span>
         <div className={styles.Text}>
           <h5 className={styles.Title}>Milan Individual Project</h5>
-          <span className={styles.Subtitle}> Software Project </span>
+          <span className={styles.Subtitle}> Software project </span>
         </div>
       </div>
     </div>
