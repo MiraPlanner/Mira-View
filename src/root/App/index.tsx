@@ -7,6 +7,7 @@ import AppRoutes from './Routes/AppRoutes'
 import { ProSidebarProvider } from 'react-pro-sidebar'
 
 import './Styles/baseStyles.scss'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const App = () => (
   <ProSidebarProvider>
