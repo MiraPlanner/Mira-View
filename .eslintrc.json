@@ -1,14 +1,14 @@
 {
     "env": {
         "browser": true,
-        "es2021": true,
-        "jest/globals": true
+        "es2021": true
     },
     "extends": [
         "eslint:recommended",
+        "prettier",
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
-        "prettier"
+        "plugin:jest/recommended"
     ],
     "overrides": [
     ],
