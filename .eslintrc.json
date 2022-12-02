@@ -19,8 +19,7 @@
     },
     "plugins": [
         "react",
-        "@typescript-eslint",
-        "jest"
+        "@typescript-eslint"
     ],
     "settings": {
         "react": {
