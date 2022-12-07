@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './Header.module.scss'
-import logo from '../../assets/logo.png' // with import
+import logo from '../../assets/logo.png'
+import CreateIssueModal from '../Modals/CreateIssueModal/CreateIssueModal' // with import
 
 const Header = () => {
+  const [showIssueModal, setShowIssueModal] = useState(false)
+
   return (
     <div className={styles.Container}>
       <div className={styles.Wrapper}>
@@ -10,7 +13,10 @@ const Header = () => {
           <img src={logo} className={styles.Logo} />
           <div className={styles.CreateIssueButtonContainer}>
             <div className={styles.CreateIssueButton}>
-              <div className={styles.CreateIssueButtonText}>Create</div>
+              <div className={styles.CreateIssueButtonText} onClick={() => setShowIssueModal(true)}>
+                Create
+              </div>
+              <CreateIssueModal show={showIssueModal} setShow={setShowIssueModal} />
             </div>
           </div>
         </div>
