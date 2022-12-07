@@ -16,10 +16,10 @@ interface BaseApiResponse {
 
 export type IssueProps = {
   id?: string
-  sprintId: string
+  sprintId: string | undefined
   title: string
-  description?: string
-  duration?: number
+  description?: string | undefined
+  duration?: number | undefined
   status: number
   type: number
 }
@@ -43,6 +43,9 @@ const callApi = async ({ apiUrl, path, method, body }: ApiCalls) => {
   if (body) fetchOptions.body = typeof body === 'string' ? body : JSON.stringify(body)
 
   try {
+    console.log(url)
+    console.log(fetchOptions)
+
     const response = await fetch(url, fetchOptions)
     const responseText = await response.text()
     return {
@@ -59,7 +62,8 @@ const callApi = async ({ apiUrl, path, method, body }: ApiCalls) => {
 
 export const createIssue = (issueProps: IssueProps): Promise<IssuePropsResponse> =>
   callApi({
-    path: 'patients',
+    apiUrl: 'http://localhost:5001',
+    path: 'issues',
     method: 'POST',
     body: issueProps,
   })

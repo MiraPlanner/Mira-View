@@ -13,14 +13,18 @@ export interface IModalProps {
 const CreateIssueModal: React.FC<IModalProps> = ({ show, setShow }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [error, setError] = useState(false)
-  const handleClose = () => setShow(false)
-  const [issueForm, setIssueForm] = useState({
-    sprintId: '',
+  const issue = {
+    sprintId: undefined,
     title: '',
-    description: '',
-    duration: 0,
+    description: undefined,
+    duration: undefined,
     type: IssueType.STORY,
-  })
+  }
+  const [issueForm, setIssueForm] = useState(issue)
+  const handleClose = () => {
+    setIssueForm(issue)
+    setShow(false)
+  }
 
   const submitIssue = () => {
     const handleIssue: IssueProps = {
@@ -38,9 +42,7 @@ const CreateIssueModal: React.FC<IModalProps> = ({ show, setShow }) => {
           setError(true)
         } else {
           const createdIssue = response.response
-          console.log(createdIssue) //ToDO Remove console log
           setError(false)
-          // setPatient(resPatient)
           // updateTable(true)
         }
       })
@@ -72,10 +74,19 @@ const CreateIssueModal: React.FC<IModalProps> = ({ show, setShow }) => {
             <Form.Control
               type='text'
               name='sprintId'
-              placeholder='Sprint Id'
+              placeholder='Sprint'
               defaultValue={issueForm.sprintId}
               onChange={handleChange}
             />
+          </Form.Group>
+
+          <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
+            <Form.Label>Issue Type</Form.Label>
+            <Form.Control as='select' name='type' onChange={handleChange}>
+              <option value={IssueType.STORY}>User story</option>
+              <option value={IssueType.TASK}>Task</option>
+              <option value={IssueType.Subtask}>Subtask</option>
+            </Form.Control>
           </Form.Group>
           <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
             <Form.Label>Summary</Form.Label>
@@ -96,6 +107,18 @@ const CreateIssueModal: React.FC<IModalProps> = ({ show, setShow }) => {
               placeholder='Description'
               defaultValue={issueForm.description}
               onChange={handleChange}
+            />
+          </Form.Group>
+          <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
+            <Form.Label>Duration</Form.Label>
+            <Form.Control
+              type='number'
+              name='duration'
+              placeholder='Duration'
+              defaultValue={issueForm.duration}
+              onChange={handleChange}
+              min={0}
+              max={10000000}
             />
           </Form.Group>
         </Form>
