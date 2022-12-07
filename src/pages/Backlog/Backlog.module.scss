@@ -1,5 +1,7 @@
 .Container {
-  text-align: center;
-  background: gray;
-  color: red;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }

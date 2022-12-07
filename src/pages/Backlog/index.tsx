@@ -1,10 +1,20 @@
 import React from 'react'
 import Layout from '../../layouts/Layout'
+import Title from './Title'
+import Sprint from '../../components/Sprint'
+import SprintBacklog from '../../components/SprintBacklog'
+import styles from './Backlog.module.scss'
 
 const Backlog = () => {
   return (
     <Layout>
-      <div>Backlog Content Goes Here</div>
+      <div className={styles.Container}>
+        <Title />
+        <Sprint />
+        <Sprint />
+        <Sprint />
+        <SprintBacklog />
+      </div>
     </Layout>
   )
 }

@@ -1,0 +1,14 @@
+.Container {
+  margin-top: 2rem;
+}
+
+.Content {
+  display: flex;
+  flex-direction: column;
+  min-width: 626px;
+  min-height: 44px;
+  padding: 8px 12px 8px 12px;
+  border-radius: 8px;
+  background-color: var(--ds-surface-sunken,#F4F5F7);
+  justify-content: center;
+}
