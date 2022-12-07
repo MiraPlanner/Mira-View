@@ -3,7 +3,7 @@ import styles from './Status.module.scss'
 import { IssueStatus } from '../../../../shared/constants/issues'
 
 type Props = {
-  status: string
+  status: number
 }
 
 function Status({ status }: Props) {

@@ -19,7 +19,7 @@ const CreateIssueModal: React.FC<IModalProps> = ({ show, setShow }) => {
     title: '',
     description: '',
     duration: 0,
-    type: IssueType.USERSTORY,
+    type: IssueType.STORY,
   })
 
   const submitIssue = () => {

@@ -3,7 +3,7 @@ import styles from './Icon.module.scss'
 import { IssueType } from '../../../../shared/constants/issues'
 
 type Props = {
-  type: string
+  type: number
 }
 
 function Icon({ type }: Props) {

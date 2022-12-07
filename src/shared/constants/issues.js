@@ -1,13 +1,13 @@
 export const IssueType = {
-  TASK: 'task',
-  Subtask: 'subtask',
-  STORY: 'story',
+  STORY: 0,
+  TASK: 1,
+  Subtask: 2,
 }
 
 export const IssueStatus = {
-  TODO: 'todo',
-  INPROGRESS: 'inprogress',
-  DONE: 'done',
+  TODO: 0,
+  INPROGRESS: 1,
+  DONE: 2,
 }
 
 export const SprintStatus = {
