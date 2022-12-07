@@ -10,10 +10,12 @@ const Backlog = () => {
     <Layout>
       <div className={styles.Container}>
         <Title />
-        <Sprint />
-        <Sprint />
-        <Sprint />
-        <SprintBacklog />
+        <div className={styles.Sprints}>
+          <Sprint />
+          <Sprint />
+          <Sprint />
+          <SprintBacklog />
+        </div>
       </div>
     </Layout>
   )
