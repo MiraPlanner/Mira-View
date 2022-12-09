@@ -7,10 +7,10 @@ import { IssueStatus, IssueType } from '../../../shared/constants/issues'
 
 export interface IModalProps {
   show: boolean
-  setShow: (arg: boolean) => void
+  hide: () => void
 }
 
-const CreateIssueModal: React.FC<IModalProps> = ({ show, setShow }) => {
+const CreateIssueModal: React.FC<IModalProps> = ({ show, hide }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [error, setError] = useState(false)
   const issue = {
@@ -23,7 +23,7 @@ const CreateIssueModal: React.FC<IModalProps> = ({ show, setShow }) => {
   const [issueForm, setIssueForm] = useState(issue)
   const handleClose = () => {
     setIssueForm(issue)
-    setShow(false)
+    hide()
   }
 
   const submitIssue = () => {

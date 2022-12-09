@@ -16,7 +16,7 @@ const Header = () => {
               <div className={styles.CreateIssueButtonText} onClick={() => setShowIssueModal(true)}>
                 Create
               </div>
-              <CreateIssueModal show={showIssueModal} setShow={setShowIssueModal} />
+              <CreateIssueModal show={showIssueModal} hide={() => setShowIssueModal(false)} />
             </div>
           </div>
         </div>
