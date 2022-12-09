@@ -28,9 +28,9 @@ export type SprintProps = {
   id?: string
   name: string
   goal?: string | undefined
-  startDate?: number | undefined
-  endDate: number
-  Issues: IssueProps[]
+  startDate?: string | undefined
+  endDate: string | undefined
+  issues: IssueProps[]
 }
 
 interface IssuePropsResponse extends BaseApiResponse {

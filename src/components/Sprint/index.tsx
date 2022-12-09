@@ -3,12 +3,13 @@ import styles from './Sprint.module.scss'
 import Header from './Header'
 import Issue from './Issue'
 import ButtonCreate from './ButtonCreate'
+import { SprintProps } from '../../shared/utils/calls'
 
-const Sprint = () => {
+const Sprint = ({ id, name, goal, issues, startDate, endDate }: SprintProps) => {
   return (
     <div className={styles.Container}>
       <div className={styles.Content}>
-        <Header title={'Sprint X'} />
+        <Header name={name} goal={goal} startDate={startDate} endDate={endDate} issues={issues} />
         <div>
           <div>
             <Issue />
