@@ -24,8 +24,21 @@ export type IssueProps = {
   type: number
 }
 
+export type SprintProps = {
+  id?: string
+  name: string
+  goal?: string | undefined
+  startDate?: number | undefined
+  endDate: number
+  Issues: IssueProps[]
+}
+
 interface IssuePropsResponse extends BaseApiResponse {
   response: IssueProps
+}
+
+interface SprintPropsResponse extends BaseApiResponse {
+  response: SprintProps[]
 }
 
 const callApi = async ({ apiUrl, path, method, body }: ApiCalls) => {
@@ -66,4 +79,11 @@ export const createIssue = (issueProps: IssueProps): Promise<IssuePropsResponse>
     path: 'issues',
     method: 'POST',
     body: issueProps,
+  })
+
+export const getSprints = (): Promise<SprintPropsResponse> =>
+  callApi({
+    apiUrl: 'http://localhost:5005',
+    path: 'sprints',
+    method: 'GET',
   })

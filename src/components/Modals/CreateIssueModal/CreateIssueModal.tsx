@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/esm/Button'
 import Form from 'react-bootstrap/esm/Form'
 import Modal from 'react-bootstrap/esm/Modal'
-import { createIssue, IssueProps } from '../../../shared/utils/calls'
+import { createIssue, getSprints, IssueProps, SprintProps } from '../../../shared/utils/calls'
 import { IssueStatus, IssueType } from '../../../shared/constants/issues'
 
 export interface IModalProps {
@@ -13,6 +13,7 @@ export interface IModalProps {
 const CreateIssueModal: React.FC<IModalProps> = ({ show, hide }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [error, setError] = useState(false)
+  const [sprints, setSprints] = useState<SprintProps[]>()
   const issue = {
     sprintId: undefined,
     title: '',
@@ -24,6 +25,23 @@ const CreateIssueModal: React.FC<IModalProps> = ({ show, hide }) => {
   const handleClose = () => {
     setIssueForm(issue)
     hide()
+  }
+
+  useEffect(() => {
+    fetchSprints()
+  }, [])
+
+  const fetchSprints = () => {
+    getSprints().then((response) => {
+      if (response.error) {
+        setError(true)
+      } else {
+        setError(false)
+        const fetchedSprints = response.response
+        const sortedSprints = fetchedSprints.sort((a, b) => a.name.localeCompare(b.name))
+        setSprints(sortedSprints)
+      }
+    })
   }
 
   const submitIssue = () => {
@@ -47,7 +65,7 @@ const CreateIssueModal: React.FC<IModalProps> = ({ show, hide }) => {
         }
       })
       .catch((err) => {
-        console.error('Error occurred while fetching patients', err)
+        console.error('Error occurred while creating issue', err)
         setError(true)
       })
   }
@@ -70,14 +88,16 @@ const CreateIssueModal: React.FC<IModalProps> = ({ show, hide }) => {
       <Modal.Body>
         <Form>
           <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
-            <Form.Label>Sprint</Form.Label>
-            <Form.Control
-              type='text'
-              name='sprintId'
-              placeholder='Sprint'
-              defaultValue={issueForm.sprintId}
-              onChange={handleChange}
-            />
+            <Form.Label>Sprint </Form.Label>
+            <Form.Control as='select' name='sprintId' placeholder='Sprint' onChange={handleChange}>
+              <option value={undefined}>Backlog</option>
+
+              {sprints?.map((s) => (
+                <option key={s.id} value={s.id}>
+                  {s.name}
+                </option>
+              ))}
+            </Form.Control>
           </Form.Group>
 
           <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
@@ -88,6 +108,7 @@ const CreateIssueModal: React.FC<IModalProps> = ({ show, hide }) => {
               <option value={IssueType.Subtask}>Subtask</option>
             </Form.Control>
           </Form.Group>
+
           <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
             <Form.Label>Summary</Form.Label>
             <Form.Control
@@ -98,6 +119,7 @@ const CreateIssueModal: React.FC<IModalProps> = ({ show, hide }) => {
               onChange={handleChange}
             />
           </Form.Group>
+
           <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
             <Form.Label>Description</Form.Label>
             <Form.Control
@@ -109,6 +131,7 @@ const CreateIssueModal: React.FC<IModalProps> = ({ show, hide }) => {
               onChange={handleChange}
             />
           </Form.Group>
+
           <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
             <Form.Label>Duration</Form.Label>
             <Form.Control
