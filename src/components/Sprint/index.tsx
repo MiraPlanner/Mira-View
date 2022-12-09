@@ -12,8 +12,9 @@ const Sprint = ({ id, name, goal, issues, startDate, endDate }: SprintProps) => 
         <Header name={name} goal={goal} startDate={startDate} endDate={endDate} issues={issues} />
         <div>
           <div>
-            <Issue />
-            <Issue />
+            {issues?.map((issue) => (
+              <Issue {...issue} key={issue.id} />
+            ))}
           </div>
           <ButtonCreate />
         </div>

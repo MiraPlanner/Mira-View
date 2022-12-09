@@ -20,8 +20,8 @@ export type IssueProps = {
   title: string
   description?: string | undefined
   duration?: number | undefined
-  status: number
-  type: number
+  issueStatus: number
+  issueType: number
 }
 
 export type SprintProps = {
@@ -56,11 +56,10 @@ const callApi = async ({ apiUrl, path, method, body }: ApiCalls) => {
   if (body) fetchOptions.body = typeof body === 'string' ? body : JSON.stringify(body)
 
   try {
-    console.log(url)
-    console.log(fetchOptions)
-
     const response = await fetch(url, fetchOptions)
     const responseText = await response.text()
+    console.log(responseText)
+
     return {
       error: false,
       response: responseText && responseText.length > 0 ? JSON.parse(responseText) : {},

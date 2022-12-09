@@ -35,7 +35,7 @@ const Header = ({ name, startDate, endDate, goal, issues }: SprintProps) => {
         </div>
 
         <div className={styles.TitleEnd}>
-          <StatusButton status={SprintStatus.INACTIVE} activeSprint={false} />
+          <StatusButton status={SprintStatus.INACTIVE} activeSprint={true} />
         </div>
       </div>
       <div className={styles.Goal}>{goal}</div>

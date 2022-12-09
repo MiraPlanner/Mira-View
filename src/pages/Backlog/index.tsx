@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import Layout from '../../layouts/Layout'
 import Title from './Title'
-import SprintBacklog from '../../components/SprintBacklog'
 import styles from './Backlog.module.scss'
 import { getSprints, SprintProps } from '../../shared/utils/calls'
 import Sprint from '../../components/Sprint'
+import SprintBacklog from '../../components/SprintBacklog'
 
 const Backlog = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

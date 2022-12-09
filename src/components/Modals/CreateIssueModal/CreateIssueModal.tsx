@@ -19,9 +19,10 @@ const CreateIssueModal: React.FC<IModalProps> = ({ show, hide }) => {
     title: '',
     description: undefined,
     duration: undefined,
-    type: IssueType.STORY,
+    issueType: IssueType.STORY,
+    issueStatus: IssueStatus.TODO,
   }
-  const [issueForm, setIssueForm] = useState(issue)
+  const [issueForm, setIssueForm] = useState<IssueProps>(issue)
   const handleClose = () => {
     setIssueForm(issue)
     hide()
@@ -50,8 +51,8 @@ const CreateIssueModal: React.FC<IModalProps> = ({ show, hide }) => {
       title: issueForm.title,
       description: issueForm.description,
       duration: issueForm.duration,
-      type: issueForm.type,
-      status: IssueStatus.TODO,
+      issueType: issueForm.issueType,
+      issueStatus: issueForm.issueStatus,
     }
 
     createIssue(handleIssue)
@@ -71,7 +72,9 @@ const CreateIssueModal: React.FC<IModalProps> = ({ show, hide }) => {
   }
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setIssueForm({ ...issueForm, [event.target.name]: event.target.value })
+    if (event.target.name == 'issueType')
+      setIssueForm({ ...issueForm, [event.target.name]: parseInt(event.target.value) })
+    else setIssueForm({ ...issueForm, [event.target.name]: event.target.value })
   }
 
   const handleSubmit = (event: React.MouseEvent<HTMLElement>) => {
@@ -102,7 +105,7 @@ const CreateIssueModal: React.FC<IModalProps> = ({ show, hide }) => {
 
           <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
             <Form.Label>Issue Type</Form.Label>
-            <Form.Control as='select' name='type' onChange={handleChange}>
+            <Form.Control as='select' name='issueType' onChange={handleChange}>
               <option value={IssueType.STORY}>User story</option>
               <option value={IssueType.TASK}>Task</option>
               <option value={IssueType.Subtask}>Subtask</option>
@@ -114,7 +117,7 @@ const CreateIssueModal: React.FC<IModalProps> = ({ show, hide }) => {
             <Form.Control
               type='text'
               name='title'
-              placeholder='Title'
+              placeholder='Name'
               defaultValue={issueForm.title}
               onChange={handleChange}
             />

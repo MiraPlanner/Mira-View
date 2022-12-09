@@ -1,19 +1,23 @@
 import React from 'react'
 import styles from './Issue.module.scss'
 import Icon from './Icon'
-import { IssueStatus, IssueType } from '../../../shared/constants/issues'
 import Status from './Status'
+import { IssueProps } from '../../../shared/utils/calls'
 
-const Issue = () => {
+const Issue = ({ title, issueType, issueStatus }: IssueProps) => {
+  {
+    console.log(issueType)
+  }
+
   return (
     <div className={styles.Container}>
       <div className={styles.Content}>
         <div className={styles.LeftAlign}>
-          <Icon type={IssueType.STORY} />
-          <div className={styles.Name}>OWASP Report</div>
+          <Icon type={issueType} />
+          <div className={styles.Name}>{title}</div>
         </div>
         <div className={styles.RightAlign}>
-          <Status status={IssueStatus.TODO} />
+          <Status status={issueStatus} />
         </div>
       </div>
     </div>
