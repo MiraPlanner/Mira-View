@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import App from '../root/App'
 
-it('renders placeholder backlog', () => {
+it('renders placeholder board', () => {
   render(<App />)
-  expect(screen.getByText('Backlog Content Goes Here')).toBeInTheDocument()
+  expect(screen.getByText('Board Content Goes Here')).toBeInTheDocument()
 })
