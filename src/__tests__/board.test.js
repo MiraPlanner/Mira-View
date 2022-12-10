@@ -1,9 +1,9 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import App from '../root/App'
+import Board from '../pages/Board'
 
 it('renders placeholder board', () => {
-  render(<App />)
+  render(<Board />)
   expect(screen.getByText('Board Content Goes Here')).toBeInTheDocument()
 })
