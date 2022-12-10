@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import Button from 'react-bootstrap/esm/Button'
-import Form from 'react-bootstrap/esm/Form'
-import Modal from 'react-bootstrap/esm/Modal'
+import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form'
+import Modal from 'react-bootstrap/Modal'
 import { createIssue, getSprints, IssueProps, SprintProps } from '../../../shared/utils/calls'
 import { IssueStatus, IssueType } from '../../../shared/constants/issues'
 
