@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './BacklogPageHeader.scss'
+import styles from './BacklogHeader.module.scss'
 
-const BacklogPageHeader = () => {
+const BacklogHeader = () => {
   return (
     <div className={styles.Container}>
       <div className={styles.Links}>
@@ -14,4 +14,4 @@ const BacklogPageHeader = () => {
   )
 }
 
-export default BacklogPageHeader
+export default BacklogHeader

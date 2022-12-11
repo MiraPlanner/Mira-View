@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './SprintHeader.scss'
+import styles from './SprintHeader.module.scss'
 import StatusButton from '../ButtonStatus/ButtonStatus'
 import { SprintStatus } from '../../../shared/constants/issues'
 import Moment from 'react-moment'

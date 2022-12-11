@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import Layout from '../../layouts/Layout/Layout'
-import BacklogPageHeader from './BacklogPageHeader/BacklogPageHeader'
-import styles from './BacklogPage.module.scss'
+import BacklogHeader from './BacklogHeader/BacklogHeader'
+import styles from './Backlog.module.scss'
 import { getSprints, SprintProps } from '../../shared/utils/calls'
 import Sprint from '../../components/Sprint/Sprint'
 import BacklogSprint from '../../components/BacklogSprint/BacklogSprint'
 
-const BacklogPage = () => {
+const Backlog = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [error, setError] = useState(false)
   const [sprints, setSprints] = useState<SprintProps[]>()
@@ -31,7 +31,7 @@ const BacklogPage = () => {
   return (
     <Layout>
       <div className={styles.Container}>
-        <BacklogPageHeader />
+        <BacklogHeader />
         <div className={styles.Sprints}>
           {sprints?.map((sprint) => (
             <Sprint {...sprint} key={sprint.id} />
@@ -43,4 +43,4 @@ const BacklogPage = () => {
   )
 }
 
-export default BacklogPage
+export default Backlog
