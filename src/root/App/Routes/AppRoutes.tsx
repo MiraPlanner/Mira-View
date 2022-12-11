@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom'
 import Backlog from '../../../pages/Backlog/Backlog'
-import Board from '../../../pages/Board'
+import Board from '../../../pages/Board/Board'
 
 const AppRoutes = () => (
   <Router>

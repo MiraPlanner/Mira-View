@@ -1,7 +1,7 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import App from '../root/App'
+import App from '../root/App/App'
 
 it('renders placeholder backlog', () => {
   render(<App />)

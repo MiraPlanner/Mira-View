@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './BacklogSprint.module.scss'
 
-import Header from './BacklogSprintHeader'
+import Header from './BacklogSprintHeader/BacklogSprintHeader'
 import ButtonCreateIssue from '../Sprint/ButtonCreateIssue/ButtonCreateIssue'
 
 const BacklogSprint = () => {

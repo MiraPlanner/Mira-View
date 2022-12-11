@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Header.module.scss'
+import styles from './BacklogSprintHeader.module.scss'
 import ButtonSprintCreate from '../ButtonCreateSprint/ButtonCreateSprint'
 
 const Header = () => {
