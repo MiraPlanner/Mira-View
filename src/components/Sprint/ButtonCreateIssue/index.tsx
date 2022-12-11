@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from './ButtonCreate.module.scss'
+import styles from './ButtonCreateIssue.module.scss'
 import AddIcon from '@mui/icons-material/Add'
 
-const ButtonCreate = () => {
+const ButtonCreateIssue = () => {
   return (
     <div className={styles.Container}>
       <button className={styles.Button}>
@@ -15,4 +15,4 @@ const ButtonCreate = () => {
   )
 }
 
-export default ButtonCreate
+export default ButtonCreateIssue

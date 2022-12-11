@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from './Header.module.scss'
 import logo from '../../assets/logo.png'
-import CreateIssueModal from '../Modals/CreateIssueModal/CreateIssueModal' // with import
+import IssueCreateModal from '../Modals/CreateIssueModal/IssueCreateModal' // with import
 
 const Header = () => {
   const [showIssueModal, setShowIssueModal] = useState(false)
@@ -16,7 +16,7 @@ const Header = () => {
               <div className={styles.CreateIssueButtonText} onClick={() => setShowIssueModal(true)}>
                 Create
               </div>
-              <CreateIssueModal show={showIssueModal} hide={() => setShowIssueModal(false)} />
+              <IssueCreateModal show={showIssueModal} hide={() => setShowIssueModal(false)} />
             </div>
           </div>
         </div>
