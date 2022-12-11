@@ -62,7 +62,6 @@ const callApi = async ({ apiUrl, path, method, body }: ApiCalls) => {
   try {
     const response = await fetch(url, fetchOptions)
     const responseText = await response.text()
-    console.log(responseText)
 
     return {
       error: false,
