@@ -1,7 +1,7 @@
 import React from 'react'
-import Sidenav from '../../components/Sidenav'
+import Header from '../../components/Header/Header'
+import Sidenav from '../../components/Sidenav/Sidenav'
 import styles from './Layout.module.scss'
-import Header from '../../components/Header'
 
 type Props = {
   children: React.ReactNode

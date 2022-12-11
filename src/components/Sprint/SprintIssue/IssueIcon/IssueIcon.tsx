@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Icon.module.scss'
+import styles from './IssueIcon.module.scss'
 import { IssueType } from '../../../../shared/constants/issues'
 
 type Props = {

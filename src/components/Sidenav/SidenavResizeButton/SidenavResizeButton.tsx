@@ -3,7 +3,7 @@ import { useProSidebar } from 'react-pro-sidebar'
 import styles from './SidenavButton.module.scss'
 import KeyboardArrowRightRounded from '@mui/icons-material/NavigateNextRounded'
 
-const SidenavButton = () => {
+const SidenavResizeButton = () => {
   const [isOpen, setIsOpen] = useState(true)
 
   const { collapseSidebar } = useProSidebar()
@@ -26,4 +26,4 @@ const SidenavButton = () => {
   )
 }
 
-export default SidenavButton
+export default SidenavResizeButton

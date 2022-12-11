@@ -1,10 +1,10 @@
 import React from 'react'
-import styles from './Issue.module.scss'
-import Icon from './Icon'
-import Status from './Status'
+import styles from './SprintIssue.module.scss'
+import Icon from './IssueIcon/IssueIcon'
+import Status from './IssueStatus/IssueStatus'
 import { IssueProps } from '../../../shared/utils/calls'
 
-const Issue = ({ title, issueType, issueStatus }: IssueProps) => {
+const SprintIssue = ({ title, issueType, issueStatus }: IssueProps) => {
   {
     console.log(issueType)
   }
@@ -24,4 +24,4 @@ const Issue = ({ title, issueType, issueStatus }: IssueProps) => {
   )
 }
 
-export default Issue
+export default SprintIssue
