@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Header.module.scss'
-import ButtonAdd from '../ButtonAdd'
+import ButtonSprintCreate from '../ButtonSprintCreate'
 
 const Header = () => {
   return (
@@ -11,7 +11,7 @@ const Header = () => {
       </div>
 
       <div className={styles.TitleEnd}>
-        <ButtonAdd />
+        <ButtonSprintCreate />
       </div>
     </div>
   )

@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Sprint.module.scss'
 import Header from './Header'
 import Issue from './Issue'
-import ButtonCreate from './ButtonCreate'
+import ButtonCreateIssue from './ButtonCreateIssue'
 import { SprintProps } from '../../shared/utils/calls'
 
 const Sprint = ({ id, name, goal, issues, startDate, endDate }: SprintProps) => {
@@ -16,7 +16,7 @@ const Sprint = ({ id, name, goal, issues, startDate, endDate }: SprintProps) => 
               <Issue {...issue} key={issue.id} />
             ))}
           </div>
-          <ButtonCreate />
+          <ButtonCreateIssue />
         </div>
       </div>
     </div>

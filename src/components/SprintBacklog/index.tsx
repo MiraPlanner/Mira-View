@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './SprintBacklog.module.scss'
 
 import Header from './Header'
-import ButtonCreate from '../Sprint/ButtonCreate'
+import ButtonCreateIssue from '../Sprint/ButtonCreateIssue'
 
 const SprintBacklog = () => {
   return (
@@ -14,7 +14,7 @@ const SprintBacklog = () => {
             {/*<Issue />*/}
             {/*<Issue />*/}
           </div>
-          <ButtonCreate />
+          <ButtonCreateIssue />
         </div>
       </div>
     </div>
