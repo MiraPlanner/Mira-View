@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './Title.module.scss'
+import styles from './BacklogPageHeader.scss'
 
-const Title = () => {
+const BacklogPageHeader = () => {
   return (
     <div className={styles.Container}>
       <div className={styles.Links}>
@@ -14,4 +14,4 @@ const Title = () => {
   )
 }
 
-export default Title
+export default BacklogPageHeader

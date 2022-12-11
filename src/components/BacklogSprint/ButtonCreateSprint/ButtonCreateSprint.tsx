@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styles from './ButtonSprintCreate.module.scss'
+import styles from './ButtonCreateSprint.module.scss'
 import { createSprint, SprintProps } from '../../../shared/utils/calls'
 
 type Props = {

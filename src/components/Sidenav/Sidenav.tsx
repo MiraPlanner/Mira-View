@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import { Menu, MenuItem, Sidebar } from 'react-pro-sidebar'
-import styles from './Sidenav.module.scss'
-import SidenavHeader from './SidenavHeader'
-import SidenavButton from './SidenavButton'
 import { Link } from 'react-router-dom'
-import SidenavFooter from './SidenavFooter'
+import SidenavHeader from './SidenavHeader/SidenavHeader'
+import SidenavResizeButton from './SidenavResizeButton/SidenavResizeButton'
+import SidenavFooter from './SidenavFooter/SidenavFooter'
+import styles from './Sidenav.module.scss'
 
 const Sidenav = () => {
   return (
@@ -23,7 +23,7 @@ const Sidenav = () => {
             <SidenavFooter />
           </Menu>
         </Sidebar>
-        <SidenavButton />
+        <SidenavResizeButton />
       </div>
     </Fragment>
   )

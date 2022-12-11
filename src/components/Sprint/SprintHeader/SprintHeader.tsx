@@ -1,11 +1,11 @@
 import React from 'react'
-import styles from './Header.module.scss'
-import StatusButton from '../ButtonStatus'
+import styles from './SprintHeader.scss'
+import StatusButton from '../ButtonStatus/ButtonStatus'
 import { SprintStatus } from '../../../shared/constants/issues'
 import Moment from 'react-moment'
 import { SprintProps } from '../../../shared/utils/calls'
 
-const Header = ({ name, startDate, endDate, goal, issues }: SprintProps) => {
+const SprintHeader = ({ name, startDate, endDate, goal, issues }: SprintProps) => {
   const issueText = (issueCount: number) => {
     if (issueCount == 1) {
       return <div className={styles.Issues}>(1 issue)</div>
@@ -43,4 +43,4 @@ const Header = ({ name, startDate, endDate, goal, issues }: SprintProps) => {
   )
 }
 
-export default Header
+export default SprintHeader

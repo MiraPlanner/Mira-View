@@ -10,7 +10,7 @@ export interface IModalProps {
   hide: () => void
 }
 
-const IssueCreateModal: React.FC<IModalProps> = ({ show, hide }) => {
+const CreateIssueModal: React.FC<IModalProps> = ({ show, hide }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [error, setError] = useState(false)
   const [sprints, setSprints] = useState<SprintProps[]>()
@@ -161,4 +161,4 @@ const IssueCreateModal: React.FC<IModalProps> = ({ show, hide }) => {
   )
 }
 
-export default IssueCreateModal
+export default CreateIssueModal

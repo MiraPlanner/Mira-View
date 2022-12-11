@@ -5,5 +5,5 @@ import App from '../root/App'
 
 it('renders placeholder backlog', () => {
   render(<App />)
-  expect(screen.getByText('Backlog Content Goes Here')).toBeInTheDocument()
+  expect(screen.getByText('BacklogSprint Content Goes Here')).toBeInTheDocument()
 })
