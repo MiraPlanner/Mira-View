@@ -4,13 +4,14 @@ import BacklogHeader from './BacklogHeader/BacklogHeader'
 import styles from './Backlog.module.scss'
 import Sprint from '../../components/Sprint/Sprint'
 import BacklogSprint from '../../components/BacklogSprint/BacklogSprint'
-import { SprintContext } from '../../shared/context/SprintProvider'
+import { BacklogContext } from '../../shared/context/BacklogProvider'
+import { SprintContext } from '../../shared/context/SprintContext'
 
 const Backlog = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [error, setError] = useState(false)
 
-  const { sprints } = useContext(SprintContext)
+  const { sprints } = useContext(BacklogContext)
 
   return (
     <Layout>
@@ -18,7 +19,9 @@ const Backlog = () => {
         <BacklogHeader />
         <div className={styles.Sprints}>
           {sprints?.map((sprint) => (
-            <Sprint {...sprint} key={sprint.id} />
+            <SprintContext.Provider value={{ sprint }} key={sprint.id}>
+              <Sprint />
+            </SprintContext.Provider>
           ))}
           <BacklogSprint />
         </div>
