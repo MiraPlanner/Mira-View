@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from './ButtonCreateIssue.module.scss'
 import AddIcon from '@mui/icons-material/Add'
 import CreateIssueModal from '../../Modals/Issues/CreateIssueModal'
+import { SprintContext } from '../../../shared/context/SprintContext'
 
 const ButtonCreateIssue = () => {
   const [showIssueModal, setShowIssueModal] = useState(false)
+  const { sprint } = useContext(SprintContext)
 
   return (
     <div className={styles.Container}>
@@ -14,7 +16,11 @@ const ButtonCreateIssue = () => {
         </div>
         <div>Create issue</div>
       </button>
-      <CreateIssueModal show={showIssueModal} hide={() => setShowIssueModal(false)} />
+      <CreateIssueModal
+        show={showIssueModal}
+        hide={() => setShowIssueModal(false)}
+        defaultValue={sprint.id}
+      />
     </div>
   )
 }
