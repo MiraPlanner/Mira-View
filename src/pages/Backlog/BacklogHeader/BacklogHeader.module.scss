@@ -1,0 +1,28 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  height: 7rem;
+  padding-top: 1.7rem;
+  padding-bottom: 2rem;
+}
+
+.Links {
+  display: flex;
+  flex-direction: row;
+  color: var(--ds-text-subtle, #6B778C);
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.Divider {
+  text-align: center;
+  width: 24px;
+}
+
+.Header {
+  font-size: 1.49em;
+  font-weight: 500;
+  line-height: 40px;
+  letter-spacing: -0.01em;
+  color: var(--ds-text, var(--ds-text, #172B4D));
+}

@@ -3,7 +3,7 @@ import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
 import { BrowserRouter as BrowserRouter } from 'react-router-dom'
 import { ProSidebarProvider } from 'react-pro-sidebar'
-import Board from '../pages/Board'
+import Board from '../pages/Board/Board'
 
 it('renders placeholder board', () => {
   render(

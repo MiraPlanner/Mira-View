@@ -5,7 +5,7 @@ interface ApiCalls {
   apiUrl?: string
   path: string
   method: 'POST' | 'GET' | 'PUT' | 'DELETE'
-  body?: string | IssueProps
+  body?: string | IssueProps | SprintProps | CreateSprintProps
 }
 
 interface BaseApiResponse {
@@ -25,20 +25,37 @@ export type IssueProps = {
 }
 
 export type SprintProps = {
-  id?: string
+  id?: string | undefined
   name: string
   goal?: string | undefined
   startDate?: string | undefined
-  endDate: string | undefined
+  endDate?: string | undefined
   issues: IssueProps[]
+  createdAt: string
+  updatedAt: string
+}
+
+export type CreateSprintProps = {
+  name: string
+  goal?: string | undefined
+  startDate?: string | undefined
+  endDate?: string | undefined
 }
 
 interface IssuePropsResponse extends BaseApiResponse {
   response: IssueProps
 }
 
-interface SprintPropsResponse extends BaseApiResponse {
+interface SprintPropsGetResponse extends BaseApiResponse {
   response: SprintProps[]
+}
+
+interface BacklogPropsResponse extends BaseApiResponse {
+  response: IssueProps[]
+}
+
+interface SprintPropsCreateResponse extends BaseApiResponse {
+  response: SprintProps
 }
 
 const callApi = async ({ apiUrl, path, method, body }: ApiCalls) => {
@@ -58,7 +75,6 @@ const callApi = async ({ apiUrl, path, method, body }: ApiCalls) => {
   try {
     const response = await fetch(url, fetchOptions)
     const responseText = await response.text()
-    console.log(responseText)
 
     return {
       error: false,
@@ -80,9 +96,26 @@ export const createIssue = (issueProps: IssueProps): Promise<IssuePropsResponse>
     body: issueProps,
   })
 
-export const getSprints = (): Promise<SprintPropsResponse> =>
+export const getSprints = (): Promise<SprintPropsGetResponse> =>
   callApi({
     apiUrl: 'http://localhost:5005',
     path: 'sprints',
     method: 'GET',
+  })
+
+export const getBacklog = (): Promise<BacklogPropsResponse> =>
+  callApi({
+    apiUrl: 'http://localhost:5005',
+    path: 'sprints/backlog',
+    method: 'GET',
+  })
+
+export const createSprint = (
+  createSprintProps: CreateSprintProps,
+): Promise<SprintPropsCreateResponse> =>
+  callApi({
+    apiUrl: 'http://localhost:5005',
+    path: 'sprints',
+    method: 'POST',
+    body: createSprintProps,
   })
