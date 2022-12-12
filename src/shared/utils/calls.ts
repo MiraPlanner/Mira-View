@@ -50,6 +50,10 @@ interface SprintPropsGetResponse extends BaseApiResponse {
   response: SprintProps[]
 }
 
+interface BacklogPropsResponse extends BaseApiResponse {
+  response: IssueProps[]
+}
+
 interface SprintPropsCreateResponse extends BaseApiResponse {
   response: SprintProps
 }
@@ -96,6 +100,13 @@ export const getSprints = (): Promise<SprintPropsGetResponse> =>
   callApi({
     apiUrl: 'http://localhost:5005',
     path: 'sprints',
+    method: 'GET',
+  })
+
+export const getBacklog = (): Promise<BacklogPropsResponse> =>
+  callApi({
+    apiUrl: 'http://localhost:5005',
+    path: 'sprints/backlog',
     method: 'GET',
   })
 
