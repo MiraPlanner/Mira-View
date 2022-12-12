@@ -5,7 +5,7 @@ interface ApiCalls {
   apiUrl?: string
   path: string
   method: 'POST' | 'GET' | 'PUT' | 'DELETE'
-  body?: string | IssueProps | SprintProps
+  body?: string | IssueProps | SprintProps | CreateSprintProps
 }
 
 interface BaseApiResponse {
@@ -31,6 +31,15 @@ export type SprintProps = {
   startDate?: string | undefined
   endDate?: string | undefined
   issues: IssueProps[]
+  createdAt: string
+  updatedAt: string
+}
+
+export type CreateSprintProps = {
+  name: string
+  goal?: string | undefined
+  startDate?: string | undefined
+  endDate?: string | undefined
 }
 
 interface IssuePropsResponse extends BaseApiResponse {
@@ -90,10 +99,12 @@ export const getSprints = (): Promise<SprintPropsGetResponse> =>
     method: 'GET',
   })
 
-export const createSprint = (sprintProps: SprintProps): Promise<SprintPropsCreateResponse> =>
+export const createSprint = (
+  createSprintProps: CreateSprintProps,
+): Promise<SprintPropsCreateResponse> =>
   callApi({
     apiUrl: 'http://localhost:5005',
     path: 'sprints',
     method: 'POST',
-    body: sprintProps,
+    body: createSprintProps,
   })

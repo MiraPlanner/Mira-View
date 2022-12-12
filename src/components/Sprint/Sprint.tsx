@@ -5,7 +5,7 @@ import SprintIssue from './SprintIssue/SprintIssue'
 import ButtonCreateIssue from './ButtonCreateIssue/ButtonCreateIssue'
 import { SprintProps } from '../../shared/utils/calls'
 
-const Sprint = ({ id, name, goal, issues, startDate, endDate }: SprintProps) => {
+const Sprint = ({ name, goal, issues, startDate, endDate, createdAt, updatedAt }: SprintProps) => {
   return (
     <div className={styles.Container}>
       <div className={styles.Content}>
@@ -15,6 +15,8 @@ const Sprint = ({ id, name, goal, issues, startDate, endDate }: SprintProps) => 
           startDate={startDate}
           endDate={endDate}
           issues={issues}
+          createdAt={createdAt}
+          updatedAt={updatedAt}
         />
         <div>
           <div>
