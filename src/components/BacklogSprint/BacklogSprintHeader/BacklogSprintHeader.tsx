@@ -1,13 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './BacklogSprintHeader.module.scss'
 import ButtonCreateSprint from '../ButtonCreateSprint/ButtonCreateSprint'
+import { BacklogContext } from '../../../shared/context/BacklogProvider'
 
-const Header = () => {
+const BacklogSprintHeader = () => {
+  const { backlog } = useContext(BacklogContext)
+
+  const issueText = () => {
+    const issueCount = backlog.length
+    if (issueCount == 1) {
+      return <div className={styles.Issues}>(1 issue)</div>
+    }
+    return <div className={styles.Issues}>({issueCount} issues)</div>
+  }
+
   return (
     <div className={styles.Container}>
       <div className={styles.Description}>
         <div className={styles.Title}>Backlog</div>
-        <div className={styles.Issues}>(0 issues)</div>
+        {issueText()}
       </div>
 
       <div className={styles.TitleEnd}>
@@ -17,4 +28,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default BacklogSprintHeader
