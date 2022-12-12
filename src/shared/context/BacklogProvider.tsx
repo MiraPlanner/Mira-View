@@ -47,7 +47,7 @@ const BacklogProvider = ({ children }: Props) => {
         const fetchedSprints = res.response
 
         const sortedSprints = fetchedSprints.sort(function (a, b) {
-          return new Date(a.createdAt).getTime() - new Date(b.updatedAt).getTime()
+          return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
         })
 
         setSprints(sortedSprints)
