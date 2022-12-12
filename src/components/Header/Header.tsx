@@ -11,16 +11,21 @@ const Header = () => {
       <div className={styles.Wrapper}>
         <div className={styles.Header}>
           <img src={logo} className={styles.Logo} />
-          <div className={styles.CreateIssueButtonContainer}>
+          <div
+            className={styles.CreateIssueButtonContainer}
+            onClick={() => setShowIssueModal(true)}
+          >
             <div className={styles.CreateIssueButton}>
-              <div className={styles.CreateIssueButtonText} onClick={() => setShowIssueModal(true)}>
-                Create
-              </div>
-              <CreateIssueModal show={showIssueModal} hide={() => setShowIssueModal(false)} />
+              <div className={styles.CreateIssueButtonText}>Create</div>
             </div>
           </div>
         </div>
       </div>
+      <CreateIssueModal
+        show={showIssueModal}
+        hide={() => setShowIssueModal(false)}
+        defaultValue={undefined}
+      />
     </div>
   )
 }

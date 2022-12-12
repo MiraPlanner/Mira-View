@@ -9,9 +9,10 @@ import { BacklogContext } from '../../../shared/context/BacklogProvider'
 type Props = {
   show: boolean
   hide: () => void
+  defaultValue: string | undefined
 }
 
-const CreateIssueModal = ({ show, hide }: Props) => {
+const CreateIssueModal = ({ show, hide, defaultValue }: Props) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [error, setError] = useState(false)
   const { sprints, setSprints, backlog, setBacklog } = useContext(BacklogContext)
@@ -88,7 +89,7 @@ const CreateIssueModal = ({ show, hide }: Props) => {
         <Form>
           <Form.Group className='mb-3' controlId='exampleForm.ControlInput1'>
             <Form.Label>Sprint </Form.Label>
-            <Form.Control as='select' name='sprintId' placeholder='Sprint' onChange={handleChange}>
+            <Form.Control as='select' name='sprintId' onChange={handleChange} value={defaultValue}>
               <option value={undefined}>Backlog</option>
 
               {sprints?.map((s) => (
@@ -113,7 +114,6 @@ const CreateIssueModal = ({ show, hide }: Props) => {
             <Form.Control
               type='text'
               name='title'
-              placeholder='Name'
               defaultValue={issueForm.title}
               onChange={handleChange}
             />
@@ -125,7 +125,6 @@ const CreateIssueModal = ({ show, hide }: Props) => {
               as='textarea'
               rows={5}
               name='description'
-              placeholder='Description'
               defaultValue={issueForm.description}
               onChange={handleChange}
             />
@@ -136,7 +135,6 @@ const CreateIssueModal = ({ show, hide }: Props) => {
             <Form.Control
               type='number'
               name='duration'
-              placeholder='Duration'
               defaultValue={issueForm.duration}
               onChange={handleChange}
               min={0}
