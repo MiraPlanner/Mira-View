@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Modal from 'react-bootstrap/Modal'
-import { createIssue, getSprints, IssueProps, SprintProps } from '../../../shared/utils/calls'
+import { createIssue, IssueProps } from '../../../shared/utils/calls'
 import { IssueStatus, IssueType } from '../../../shared/constants/issues'
 import { BacklogContext } from '../../../shared/context/BacklogProvider'
 
@@ -18,7 +18,7 @@ const CreateIssueModal = ({ show, hide, defaultValue }: Props) => {
   const { sprints, setSprints, backlog, setBacklog } = useContext(BacklogContext)
 
   const issue = {
-    sprintId: undefined,
+    sprintId: defaultValue || undefined,
     title: '',
     description: undefined,
     duration: undefined,

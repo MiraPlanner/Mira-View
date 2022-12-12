@@ -4,6 +4,7 @@ import { createSprint } from '../../../shared/utils/calls'
 import { BacklogContext } from '../../../shared/context/BacklogProvider'
 
 const ButtonSprintCreate = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [error, setError] = useState(false)
   const { sprints, setSprints } = useContext(BacklogContext)
 
