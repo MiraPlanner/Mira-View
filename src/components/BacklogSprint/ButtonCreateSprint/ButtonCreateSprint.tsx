@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react'
 import styles from './ButtonCreateSprint.module.scss'
 import { createSprint } from '../../../shared/utils/calls'
-import { SprintContext } from '../../../shared/context/SprintProvider'
+import { BacklogContext } from '../../../shared/context/BacklogProvider'
 
 const ButtonSprintCreate = () => {
   const [error, setError] = useState(false)
-  const { sprints, setSprints } = useContext(SprintContext)
+  const { sprints, setSprints } = useContext(BacklogContext)
 
   const sprintName = () => {
     const lastSprint = sprints.at(-1)

@@ -3,11 +3,11 @@ import styles from './BacklogSprint.module.scss'
 
 import SprintBacklogHeader from './BacklogSprintHeader/BacklogSprintHeader'
 import ButtonCreateIssue from '../Sprint/ButtonCreateIssue/ButtonCreateIssue'
-import { SprintContext } from '../../shared/context/SprintProvider'
+import { BacklogContext } from '../../shared/context/BacklogProvider'
 import SprintIssue from '../Sprint/SprintIssue/SprintIssue'
 
 const BacklogSprint = () => {
-  const { backlog } = useContext(SprintContext)
+  const { backlog } = useContext(BacklogContext)
 
   return (
     <div className={styles.Container}>

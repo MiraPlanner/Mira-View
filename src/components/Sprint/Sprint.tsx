@@ -1,26 +1,20 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from './Sprint.module.scss'
 import SprintHeader from './SprintHeader/SprintHeader'
 import SprintIssue from './SprintIssue/SprintIssue'
 import ButtonCreateIssue from './ButtonCreateIssue/ButtonCreateIssue'
-import { SprintProps } from '../../shared/utils/calls'
+import { SprintContext } from '../../shared/context/SprintContext'
 
-const Sprint = ({ name, goal, issues, startDate, endDate, createdAt, updatedAt }: SprintProps) => {
+const Sprint = () => {
+  const { sprint } = useContext(SprintContext)
+
   return (
     <div className={styles.Container}>
       <div className={styles.Content}>
-        <SprintHeader
-          name={name}
-          goal={goal}
-          startDate={startDate}
-          endDate={endDate}
-          issues={issues}
-          createdAt={createdAt}
-          updatedAt={updatedAt}
-        />
+        <SprintHeader />
         <div>
           <div>
-            {issues?.map((issue) => (
+            {sprint.issues?.map((issue) => (
               <SprintIssue {...issue} key={issue.id} />
             ))}
           </div>

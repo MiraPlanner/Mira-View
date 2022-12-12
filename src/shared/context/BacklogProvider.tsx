@@ -1,28 +1,27 @@
 import React, { createContext, useEffect, useState } from 'react'
 import { getBacklog, getSprints, IssueProps, SprintProps } from '../utils/calls'
 
-type SprintContextType = {
+type BacklogContextType = {
   sprints: SprintProps[]
   setSprints: React.Dispatch<React.SetStateAction<SprintProps[] | []>>
   backlog: IssueProps[]
   setBacklog: React.Dispatch<React.SetStateAction<IssueProps[] | []>>
 }
 
-const SprintContextState = {
+const BacklogContextState = {
   sprints: [],
   setSprints: () => [],
   backlog: [],
   setBacklog: () => [],
 }
 
-export const SprintContext = createContext<SprintContextType>(SprintContextState)
+export const BacklogContext = createContext<BacklogContextType>(BacklogContextState)
 
-// Defining Provider
 type Props = {
   children: React.ReactNode
 }
 
-const SprintProvider = ({ children }: Props) => {
+const BacklogProvider = ({ children }: Props) => {
   const [sprints, setSprints] = useState<SprintProps[] | []>([])
   const [backlog, setBacklog] = useState<IssueProps[] | []>([])
 
@@ -69,10 +68,10 @@ const SprintProvider = ({ children }: Props) => {
   }
 
   return (
-    <SprintContext.Provider value={{ sprints, setSprints, backlog, setBacklog }}>
+    <BacklogContext.Provider value={{ sprints, setSprints, backlog, setBacklog }}>
       {children}
-    </SprintContext.Provider>
+    </BacklogContext.Provider>
   )
 }
 
-export default SprintProvider
+export default BacklogProvider

@@ -4,17 +4,17 @@ import Form from 'react-bootstrap/esm/Form'
 import Modal from 'react-bootstrap/esm/Modal'
 import { createIssue, IssueProps } from '../../../shared/utils/calls'
 import { IssueStatus, IssueType } from '../../../shared/constants/issues'
-import { SprintContext } from '../../../shared/context/SprintProvider'
+import { BacklogContext } from '../../../shared/context/BacklogProvider'
 
-export interface IModalProps {
+type Props = {
   show: boolean
   hide: () => void
 }
 
-const CreateIssueModal: React.FC<IModalProps> = ({ show, hide }) => {
+const CreateIssueModal = ({ show, hide }: Props) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [error, setError] = useState(false)
-  const { sprints, setSprints, backlog, setBacklog } = useContext(SprintContext)
+  const { sprints, setSprints, backlog, setBacklog } = useContext(BacklogContext)
 
   const issue = {
     sprintId: undefined,
