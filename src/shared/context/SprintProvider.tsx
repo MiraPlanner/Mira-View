@@ -37,7 +37,12 @@ const SprintProvider = ({ children }: Props) => {
       if (res.error) {
         console.log(res.error)
       } else {
-        const sortedSprints = res.response.sort((a, b) => a.name.localeCompare(b.name))
+        const fetchedSprints = res.response
+
+        const sortedSprints = fetchedSprints.sort(function (a, b) {
+          return new Date(a.createdAt).getTime() - new Date(b.updatedAt).getTime()
+        })
+
         setSprints(sortedSprints)
       }
     })
