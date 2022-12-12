@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './BacklogSprintHeader.module.scss'
-import ButtonSprintCreate from '../ButtonCreateSprint/ButtonCreateSprint'
+import ButtonCreateSprint from '../ButtonCreateSprint/ButtonCreateSprint'
 
 const Header = () => {
   return (
@@ -11,7 +11,7 @@ const Header = () => {
       </div>
 
       <div className={styles.TitleEnd}>
-        <ButtonSprintCreate />
+        <ButtonCreateSprint />
       </div>
     </div>
   )
