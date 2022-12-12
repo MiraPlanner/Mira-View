@@ -13,7 +13,8 @@ const ButtonSprintCreate = () => {
     if (lastSprint == null) return 'Sprint 0'
 
     const lastNumber = lastSprint.name.match(/[0-9]+$/)
-    if (lastNumber == null || !Number(lastNumber)) return lastSprint.name + ' 2'
+
+    if (lastNumber == null || isNaN(Number(0))) return lastSprint.name + ' 2'
     const newNumber = parseInt(lastNumber[0]) + 1
     return lastSprint.name.replace(/\d+$/, '') + '' + newNumber
   }
