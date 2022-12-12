@@ -5,10 +5,6 @@ import Status from './IssueStatus/IssueStatus'
 import { IssueProps } from '../../../shared/utils/calls'
 
 const SprintIssue = ({ title, issueType, issueStatus }: IssueProps) => {
-  {
-    console.log(issueType)
-  }
-
   return (
     <div className={styles.Container}>
       <div className={styles.Content}>

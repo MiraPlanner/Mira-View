@@ -1,32 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Layout from '../../layouts/Layout/Layout'
 import BacklogHeader from './BacklogHeader/BacklogHeader'
 import styles from './Backlog.module.scss'
-import { getSprints, SprintProps } from '../../shared/utils/calls'
 import Sprint from '../../components/Sprint/Sprint'
 import BacklogSprint from '../../components/BacklogSprint/BacklogSprint'
+import { SprintContext } from '../../shared/context/SprintProvider'
 
 const Backlog = () => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [error, setError] = useState(false)
-  const [sprints, setSprints] = useState<SprintProps[]>()
 
-  useEffect(() => {
-    fetchSprints()
-  }, [])
-
-  const fetchSprints = () => {
-    getSprints().then((response) => {
-      if (response.error) {
-        setError(true)
-      } else {
-        setError(false)
-        const fetchedSprints = response.response
-        const sortedSprints = fetchedSprints.sort((a, b) => a.name.localeCompare(b.name))
-        setSprints(sortedSprints)
-      }
-    })
-  }
+  const { sprints } = useContext(SprintContext)
 
   return (
     <Layout>
