@@ -67,6 +67,7 @@ jobs:
           file: ./Dockerfile
           tags: ${{steps.meta.outputs.tags}}
           labels: ${{steps.meta.output.labels}}
+          build-args: REACT_APP_ENVIRONMENT=development
 
           # build on feature branches, push only on master branch
           push: ${{ github.ref == 'refs/heads/master' }}
