@@ -61,8 +61,6 @@ interface SprintPropsCreateResponse extends BaseApiResponse {
 const callApi = async ({ apiUrl, path, method, body }: ApiCalls) => {
   const url = `${apiUrl || API_URL}/${path}`
 
-  console.log(url)
-
   const fetchOptions: RequestInit = {
     method,
     headers: {
@@ -92,6 +90,7 @@ const callApi = async ({ apiUrl, path, method, body }: ApiCalls) => {
 
 export const createIssue = (issueProps: IssueProps): Promise<IssuePropsResponse> =>
   callApi({
+    apiUrl: 'http://localhost:80',
     path: 'issues',
     method: 'POST',
     body: issueProps,
@@ -99,12 +98,14 @@ export const createIssue = (issueProps: IssueProps): Promise<IssuePropsResponse>
 
 export const getSprints = (): Promise<SprintPropsGetResponse> =>
   callApi({
+    apiUrl: 'http://localhost:80',
     path: 'sprints',
     method: 'GET',
   })
 
 export const getBacklog = (): Promise<BacklogPropsResponse> =>
   callApi({
+    apiUrl: 'http://localhost:80',
     path: 'sprints/backlog',
     method: 'GET',
   })
@@ -113,6 +114,7 @@ export const createSprint = (
   createSprintProps: CreateSprintProps,
 ): Promise<SprintPropsCreateResponse> =>
   callApi({
+    apiUrl: 'http://localhost:80',
     path: 'sprints',
     method: 'POST',
     body: createSprintProps,

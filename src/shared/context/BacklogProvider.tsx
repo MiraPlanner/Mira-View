@@ -42,7 +42,7 @@ const BacklogProvider = ({ children }: Props) => {
   const fetchSprints = () => {
     getSprints().then((res) => {
       if (res.error) {
-        console.log(res)
+        console.log(res.error)
       } else {
         const fetchedSprints = res.response
 
