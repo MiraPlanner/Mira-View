@@ -2,7 +2,7 @@ name: Push Request to Master
 
 on:
   push:
-    branches: [ master, add-nginx-config ]
+    branches: [ master ]
     
 env: 
   REGISTRY: ghcr.io
