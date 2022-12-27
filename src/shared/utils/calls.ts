@@ -61,6 +61,8 @@ interface SprintPropsCreateResponse extends BaseApiResponse {
 const callApi = async ({ apiUrl, path, method, body }: ApiCalls) => {
   const url = `${apiUrl || API_URL}/${path}`
 
+  console.log(url)
+
   const fetchOptions: RequestInit = {
     method,
     headers: {
