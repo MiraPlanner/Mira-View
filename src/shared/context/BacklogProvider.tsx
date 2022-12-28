@@ -54,13 +54,10 @@ const BacklogProvider = ({ children }: Props) => {
 
   const fetchBacklog = () => {
     getBacklog().then((res) => {
-      if (res.error) {
-        console.log(res.error)
-      } else {
-        const fetchedIssues = res.response
+      if (res.error) return
+      const fetchedIssues = res.response
 
-        setBacklog(fetchedIssues)
-      }
+      setBacklog(fetchedIssues)
     })
   }
 

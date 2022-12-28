@@ -33,7 +33,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "dev": "react-scripts start --env.ENVIRONMENT=development",
     "test": "jest",
     "eject": "react-scripts eject",
     "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
