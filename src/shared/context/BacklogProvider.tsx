@@ -41,17 +41,13 @@ const BacklogProvider = ({ children }: Props) => {
 
   const fetchSprints = () => {
     getSprints().then((res) => {
-      if (res.error) {
-        console.log(res)
-      } else {
-        const fetchedSprints = res.response
+      const fetchedSprints = res.response
 
-        const sortedSprints = fetchedSprints.sort(function (a, b) {
-          return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
-        })
+      const sortedSprints = fetchedSprints.sort(function (a, b) {
+        return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+      })
 
-        setSprints(sortedSprints)
-      }
+      setSprints(sortedSprints)
     })
   }
 
