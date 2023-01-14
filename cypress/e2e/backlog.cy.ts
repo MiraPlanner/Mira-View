@@ -27,6 +27,12 @@ describe('The Backlog Page', () => {
     cy.get('*[class^="Backlog_Container"]').contains('Milan Individual Project')
     cy.get('*[class^="Backlog_Container"]').contains('(0 issues)')
     cy.get('*[class^="Backlog_Container"]').contains('Create Sprint')
-    cy.get('*[class^="Backlog_Container"]').contains('Create Issue')
+    cy.get('*[class^="Backlog_Container"]').contains('Create issue')
+  })
+
+  it('creates new sprint', () => {
+    cy.visit('http://localhost:3000/backlog')
+    cy.get('*[class^="ButtonCreateSprint_Enabled"]').click()
+    cy.get('*[class^="Backlog_Sprints"]').contains('Sprint 0')
   })
 })
